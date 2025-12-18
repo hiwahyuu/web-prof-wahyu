@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Pemasaran Profesional - Purple Vibe Mode</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        /* TEMA TERANG GEN Z FUTURISTIK BERWARNA UNGU */
+        :root {
+            --color-light-bg: #f9f9f9; /* Latar Belakang Utama Sangat Terang */
+            --color-card-bg: #ffffff; /* Latar Belakang Card Putih */
+            --color-primary: #7b68ee; /* Ungu Profesional (Medium Slate Blue) */
+            --color-secondary: #330e60; /* Kuning Cerah/Aksen Emas */
+            --color-text: #111111; /* Teks Hitam Pekat */
+            --color-light-text: #6a6a6a; /* Teks Sekunder Abu-abu */
+            --color-shadow: rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-light-bg);
+            color: var(--color-text);
+            scroll-behavior: smooth; /* Fitur 5: Smooth Scrolling */
+        }
+
+        header {
+            background: var(--color-card-bg);
+            color: var(--color-text);
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px var(--color-shadow);
+            border-bottom: 3px solid var(--color-secondary);
+            position: sticky;
+            top: 0;
+            z-index: 100; /* Agar nav tetap di atas */
+        }
+
+        nav ul {
+            padding: 0;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: var(--color-light-text);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 0;
+        }
+
+        nav ul li a:hover {
+            color: var(--color-primary);
+            text-shadow: 0 0 3px rgba(123, 104, 238, 0.5);
+        }
+
+        section {
+            padding: 40px 20px;
+            margin: 25px auto;
+            max-width: 1200px;
+            background: var(--color-card-bg);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--color-shadow);
+            border-left: 5px solid var(--color-primary);
+        }
+
+        h2 {
+            color: var(--color-primary);
+            border-bottom: 2px solid var(--color-secondary);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 0;
+            background: var(--color-card-bg);
+            color: var(--color-light-text);
+            box-shadow: 0 -4px 10px var(--color-shadow);
+            margin-top: 50px;
+            border-top: 1px solid #ddd;
+        }
+
+        footer .social-icons {
+            margin: 15px 0;
+        }
+
+        footer .social-icons a {
+            margin: 0 18px;
+            color: var(--color-primary);
+            text-decoration: none;
+            font-size: 28px;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        
+        footer .social-icons a:hover {
+            color: var(--color-secondary);
+            transform: scale(1.2);
+        }
+
+        /* Tombol CTA Generik */
+        .cta-button {
+             padding: 15px 25px;
+            background: var(--color-primary);
+            color: var(--color-card-bg);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(123, 104, 238, 0.4);
+            transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            margin-top: 15px;
+        }
+        
+        .cta-button:hover {
+            background: var(--color-secondary);
+            box-shadow: 0 5px 20px rgba(151, 31, 125, 0.6);
+            transform: scale(1.02);
+            color: var(--color-text); 
+        }
+
+        /* Form Styling (Tidak Berubah Signifikan) */
+        form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            padding: 10px;
+        }
+        form label {
+            color: var(--color-primary);
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9em;
+        }
+        form input, form textarea {
+            padding: 14px;
+            border: 1px solid var(--color-light-text);
+            border-radius: 10px;
+            background-color: #ffffff;
+            color: var(--color-text);
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+            resize: vertical;
+            transition: all 0.3s;
+        }
+        form input:focus, form textarea:focus {
+            outline: 3px solid var(--color-secondary);
+            border-color: var(--color-secondary);
+            box-shadow: 0 0 10px rgba(255, 199, 44, 0.5);
+        }
+        form button { /* Tombol Kirim */
+            /* Menggunakan gaya cta-button untuk konsistensi */
+            padding: 15px 25px;
+            background: var(--color-primary);
+            color: var(--color-card-bg);
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 5px 15px rgba(123, 104, 238, 0.4);
+            transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.1s ease;
+        }
+        form button:hover {
+            background: var(--color-secondary);
+            box-shadow: 0 5px 20px rgba(255, 199, 44, 0.6);
+            transform: scale(1.02);
+            color: var(--color-text);
+        }
+
+        /* Carousel Styling (TIDAK BERUBAH) */
+        .carousel-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            max-height: 450px; 
+            border-radius: 15px;
+            margin: 25px 0;
+            box-shadow: 0 4px 25px var(--color-shadow);
+            border: 1px solid #ddd;
+            position: relative;
+        }
+        .carousel img {
+            width: 100%;
+            flex-shrink: 0;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            color: var(--color-primary);
+            border: 2px solid var(--color-primary);
+            padding: 12px 18px;
+            border-radius: 50%;
+            font-size: 22px;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s;
+        }
+        .carousel-button.left { left: 20px; }
+        .carousel-button.right { right: 20px; }
+        .carousel-button:hover {
+            background: rgba(123, 104, 238, 0.2);
+            color: var(--color-secondary);
+            box-shadow: 0 0 15px rgba(220, 44, 255, 0.5);
+        }
+
+        /* Grid Layanan & Card Styling (TIDAK BERUBAH) */
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .service-card {
+            background-color: var(--color-light-bg);
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px var(--color-shadow);
+            text-align: center;
+            border: 1px solid #eee;
+            transition: all 0.3s;
+        }
+        .service-card:hover {
+            border-color: var(--color-secondary);
+            transform: translateY(-5px); 
+            box-shadow: 0 8px 25px rgba(255, 199, 44, 0.3); 
+        }
+        .service-card i {
+            font-size: 50px;
+            color: var(--color-primary);
+            margin-bottom: 15px;
+            text-shadow: 0 0 5px rgba(123, 104, 238, 0.3);
+        }
+        
+        /* Statistik Card Styling (Fitur 2) */
+        #statistics {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: var(--color-primary); /* Section ungu penuh */
+            color: var(--color-card-bg); /* Teks putih */
+            border-left: none;
+        }
+        .stats-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .stat-item {
+            flex-basis: 30%;
+            padding: 15px;
+            min-width: 200px;
+        }
+        .stat-item h3 {
+            font-size: 3em;
+            margin: 0;
+            color: var(--color-secondary); /* Angka Kuning */
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+        .stat-item p {
+            font-size: 1.1em;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        /* Accordion FAQ Styling (Fitur 3) */
+        .accordion {
+            margin-top: 20px;
+        }
+        .accordion-item {
+            border: 1px solid #eee;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .accordion-header {
+            background-color: var(--color-light-bg);
+            color: var(--color-text);
+            padding: 18px;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s;
+            border-left: 5px solid var(--color-secondary);
+        }
+        .accordion-header:hover {
+            background-color: #f0f0f0;
+        }
+        .accordion-header.active {
+            background-color: var(--color-primary);
+            color: var(--color-card-bg);
+            border-left: 5px solid var(--color-secondary);
+        }
+        .accordion-content {
+            padding: 0 18px;
+            background-color: var(--color-card-bg);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+            color: var(--color-light-text);
+        }
+        .accordion-content p {
+            padding: 10px 0;
+            margin: 0;
+        }
+
+        /* Full Testimonials Styling (Dari versi sebelumnya) */
+        #full-testimonials {
+            padding: 40px 20px;
+            margin: 25px auto;
+            max-width: 1200px;
+            background: var(--color-card-bg);
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--color-shadow);
+            border: 5px solid var(--color-secondary); 
+            max-height: 80vh; 
+            overflow-y: scroll; 
+        }
+        .full-testimonial-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            padding: 10px;
+        }
+        .testimonial-item {
+            background: var(--color-light-bg);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px var(--color-shadow);
+            border-left: 5px solid var(--color-primary);
+            font-style: italic;
+        }
+        .testimonial-item .client-name {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+            color: var(--color-primary);
+            font-style: normal;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            nav ul { flex-direction: column; }
+            nav ul li { margin: 10px 0; }
+            .service-grid { grid-template-columns: 1fr; }
+            .full-testimonial-list { grid-template-columns: 1fr; }
+            .stats-grid { flex-direction: column; }
+            .stat-item { flex-basis: 100%; margin-bottom: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-chart-line"></i> MARKETING DIGITAL | UNLOCK YOUR VIBE</h1>
+        <nav>
+            <ul>
+                <li><a href="#about"><i class="fas fa-info-circle"></i> ABOUT</a></li>
+                <li><a href="#services"><i class="fas fa-cogs"></i> SERVICES</a></li>
+                <li><a href="#statistics"><i class="fas fa-award"></i> STATS</a></li>
+                <li><a href="#portfolio"><i class="fas fa-briefcase"></i> PORTFOLIO</a></li>
+                <li><a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a></li>
+                <li><a href="#contact"><i class="fas fa-headset"></i> CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="carousel-container">
+        <div class="carousel" id="carousel">
+            <img src="https://via.placeholder.com/1200x450/7b68ee/ffffff?text=STRATEGI+UNGU+FOR+MAXIMUM+IMPACT" alt="Strategi Digital">
+            <img src="https://via.placeholder.com/1200x450/ffc72c/111111?text=OPTIMIZE.+ANALYZE.+DOMINATE." alt="Peningkatan ROI">
+            <img src="https://via.placeholder.com/1200x450/f9f9f9/7b68ee?text=GROW+YOUR+BRAND'S+VIBE" alt="Tim Pakar">
+        </div>
+        <button class="carousel-button left" onclick="moveCarousel(-1)">❮</button>
+        <button class="carousel-button right" onclick="moveCarousel(1)">❯</button>
+    </div>
+    
+    <section id="lead-magnet" style="text-align: center; border-left: 5px solid var(--color-secondary);">
+        <h2><i class="fas fa-magnifying-glass-chart"></i> FREE VIBE CHECK!</h2>
+        <p>Ingin tahu seberapa *on point* strategi digital Anda saat ini? Dapatkan **Gratis Audit Digital** senilai Rp 500K dari tim pakar kami. Jangan hanya berharap, mari kita **DOMINASI** pasar!</p>
+        <a href="#contact" class="cta-button" style="background: var(--color-secondary); color: var(--color-text); box-shadow: 0 5px 20px rgba(255, 199, 44, 0.6);"><i class="fas fa-clipboard-check"></i> REQUEST AUDIT GRATIS SEKARANG!</a>
+    </section>
+
+    <section id="about">
+        <h2><i class="fas fa-building"></i> TENTANG KAMI | THE AGENCY</h2>
+        <p>Kami adalah perusahaan konsultan pemasaran digital yang berfokus pada **hasil yang *epic***. Kami menggabungkan **analisis data mendalam** dengan **kreativitas terdepan** untuk membangun strategi yang tidak hanya menarik perhatian Gen Z, tetapi juga mendorong pertumbuhan bisnis yang berkelanjutan. Tim kami terdiri dari spesialis bersertifikat di berbagai bidang digital.</p>
+        <img src="https://via.placeholder.com/1000x300/e0e0e0/7b68ee?text=TIM+KAMI+%7C+THE+DIGITAL+EXPERTS" alt="Tim Kami" style="width: 100%; border-radius: 10px; margin-top: 25px; border: 1px solid #ddd;">
+    </section>
+
+    <section id="statistics">
+        <h2><i class="fas fa-rocket"></i> KEUNGGULAN KAMI BERDASARKAN DATA</h2>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h3>+150%</h3>
+                <p>Rata-rata Peningkatan ROI Klien</p>
+            </div>
+            <div class="stat-item">
+                <h3>450+</h3>
+                <p>Total Proyek Sukses Terselesaikan</p>
+            </div>
+            <div class="stat-item">
+                <h3>99%</h3>
+                <p>Kepuasan Klien dan Retensi</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="services">
+        <h2><i class="fas fa-handshake"></i> LAYANAN KAMI | THE CORE</h2>
+        <p>Solusi pemasaran digital yang komprehensif. **Siap untuk *scale up*?**</p>
+        <div class="service-grid">
+            <div class="service-card">
+                <i class="fab fa-instagram"></i>
+                <h3>SOSIAL MEDIA VIBE</h3>
+                <p>Strategi konten yang *trending*, manajemen komunitas, dan kampanye untuk membangun *brand* yang tak terlupakan.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-search"></i>
+                <h3>SEO DOMINATION</h3>
+                <p>Meningkatkan peringkat organik, lalu lintas berkualitas, dan memastikan Anda selalu berada di puncak hasil pencarian.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-bullhorn"></i>
+                <h3>PAID ADS BOOST</h3>
+                <p>Mengelola iklan di Google, Meta, TikTok, dan platform lainnya dengan fokus pada Return on Investment (ROI) terbaik.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-chart-area"></i>
+                <h3>DATA ANALYTICS</h3>
+                <p>Mengubah data menjadi wawasan yang dapat ditindaklanjuti untuk pengambilan keputusan yang lebih cepat dan cerdas.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-pen-fancy"></i>
+                <h3>CONTENT CREATION</h3>
+                <p>Menciptakan konten visual dan naratif yang *engaging*, informatif, dan dioptimalkan untuk setiap saluran digital.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-rocket"></i>
+                <h3>EMAIL AUTOMATION</h3>
+                <p>Membangun alur kerja otomatis untuk memelihara *lead* dan meningkatkan konversi pelanggan secara personal.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="portfolio">
+        <h2><i class="fas fa-briefcase"></i> PORTOFOLIO | THE RESULTS</h2>
+        <p>Lihat *case study* yang kami lakukan untuk klien-klien yang sudah *go big*.</p>
+        <div class="service-grid">
+            <div class="service-card">
+                <h3>CASE STUDY: E-COMMERCE</h3>
+                <p>Peningkatan **75%** dalam penjualan online dalam 6 bulan melalui PPC dan *vibe check* konten SEO.</p>
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div class="service-card">
+                <h3>CASE STUDY: STARTUP B2B</h3>
+                <p>Peningkatan *Qualified Lead* sebesar **150%** melalui Otomasi Pemasaran dan Konten Premium yang relevan.</p>
+                <i class="fas fa-laptop-code"></i>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq">
+        <h2><i class="fas fa-question-circle"></i> FREQUENTLY ASKED QUESTIONS (FAQ)</h2>
+        <div class="accordion">
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    Apakah layanan Anda cocok untuk Startup kecil? <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>Tentu saja! Kami memiliki paket yang fleksibel dan terukur, dirancang khusus untuk Startup yang ingin mencapai pertumbuhan yang cepat dengan *budget* yang efisien. Kami bantu Anda mencari *product-market fit* digital.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    Berapa lama waktu yang dibutuhkan untuk melihat hasil nyata? <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>Hasil awal, seperti peningkatan *traffic* atau *engagement*, dapat dilihat dalam 4-8 minggu. Untuk peningkatan ROI dan konversi yang signifikan, kami biasanya menyarankan komitmen program minimal 6 bulan.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <div class="accordion-header" onclick="toggleAccordion(this)">
+                    Apa yang membedakan agensi Anda dari yang lain? <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content">
+                    <p>Fokus kami pada **Data-Driven Creativity**. Kami tidak hanya membuat konten yang *trendy*, tetapi kami memastikannya terikat pada metrik bisnis yang nyata. Kami juga sangat berfokus pada Vibe Gen Z: Cepat, Transparan, dan Hasil yang *Epic*.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="testimonials">
+        <h2><i class="fas fa-users"></i> KATA KLIEN KAMI | THE PROOF</h2>
+        <div class="service-grid">
+            <div class="service-card" style="border-top: 5px solid var(--color-primary);">
+                <p>"Strategi mereka benar-benar transformatif, bukan cuma janji. Kami melihat peningkatan trafik yang **signifikan** dalam waktu singkat."</p>
+                <p>**- SARAH J., CEO TECHNOVA**</p>
+            </div>
+            <div class="service-card" style="border-top: 5px solid var(--color-primary);">
+                <p>"Tim yang responsif dan sangat ahli. Kampanye iklan kami sekarang jauh lebih efisien, *budget* iklan terbayar tuntas."</p>
+                <p>**- BUDI S., OWNER F&B TRENDING**</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 30px;">
+             <a href="#full-testimonials" class="cta-button"><i class="fas fa-chevron-down"></i> LIHAT SEMUA TESTIMONI (20+ VIBES)</a>
+        </div>
+    </section>
+
+    <section id="full-testimonials">
+        <h2><i class="fas fa-star"></i> TESTIMONI LENGKAP | KUMPULAN VIBES POSITIF</h2>
+        <p>Lebih dari 20 kisah sukses yang mendorong kami untuk terus memberikan yang terbaik. Siap menjadi kisah sukses berikutnya?</p>
+        <div class="full-testimonial-list">
+            <div class="testimonial-item">
+                "Strategi mereka benar-benar transformatif, bukan cuma janji. Kami melihat peningkatan trafik yang **signifikan** dalam waktu singkat."
+                <span class="client-name">- SARAH J., CEO TECHNOVA</span>
+            </div>
+            <div class="testimonial-item">
+                "Tim yang responsif dan sangat ahli. Kampanye iklan kami sekarang jauh lebih efisien, *budget* iklan terbayar tuntas."
+                <span class="client-name">- BUDI S., OWNER F&B TRENDING</span>
+            </div>
+            <div class="testimonial-item">
+                "Growth hack mereka gila! Penjualan naik 120% sejak kolaborasi 3 bulan lalu. Highly recommended!"
+                <span class="client-name">- REZA K., STARTUP FOUNDER</span>
+            </div>
+            <div class="testimonial-item">
+                "Layanan SEO mereka mengubah game. Kami dominan di niche pasar kami sekarang."
+                <span class="client-name">- LINA M., E-BOOK AUTHOR</span>
+            </div>
+            <div class="testimonial-item">
+                "Konten yang mereka buat selalu *on point* dan viral. Benar-benar memahami audiens Gen Z."
+                <span class="client-name">- VIOLET C., BEAUTY BRAND CEO</span>
+            </div>
+            <div class="testimonial-item">
+                "Sistem email marketing yang diimplementasikan bekerja sempurna. Konversi *lead* meningkat drastis."
+                <span class="client-name">- FERRY H., SAAS MANAGER</span>
+            </div>
+            <div class="testimonial-item">
+                "Tim Paid Ads mereka sangat transparan dan efisien. ROI kami terus membaik setiap minggu."
+                <span class="client-name">- DANU P., RETAIL PARTNER</span>
+            </div>
+            <div class="testimonial-item">
+                "Kami merasa didengarkan. Mereka tidak hanya menjual layanan, tetapi solusi yang sesuai kebutuhan."
+                <span class="client-name">- JESSICA A., NON-PROFIT LEAD</span>
+            </div>
+            <div class="testimonial-item">
+                "Presentasi data mereka mudah dimengerti, membuat pengambilan keputusan bisnis jadi jauh lebih cepat."
+                <span class="client-name">- WAHYU J., DATA ANALYST</span>
+            </div>
+            <div class="testimonial-item">
+                "Brand kami akhirnya punya 'Vibe' yang kuat di media sosial. Itu semua berkat agensi ini."
+                <span class="client-name">- ANDY B., LIFESTYLE MANAGER</span>
+            </div>
+            <div class="testimonial-item">
+                "Pelayanan pelanggan 5 bintang! Selalu responsif dan proaktif dalam mencari peluang."
+                <span class="client-name">- MELANI R., SENIOR MARKETING</span>
+            </div>
+            <div class="testimonial-item">
+                "Sejak kerjasama, kami tidak perlu khawatir lagi tentang algoritma yang berubah-ubah."
+                <span class="client-name">- DAVID S., ONLINE COURSE CREATOR</span>
+            </div>
+            <div class="testimonial-item">
+                "Mereka mengurus semuanya A-Z. Kami bisa fokus pada pengembangan produk utama."
+                <span class="client-name">- YUDI T., GAMING APP CEO</span>
+            </div>
+            <div class="testimonial-item">
+                "Angka *bounce rate* kami turun drastis setelah mereka memperbaiki struktur website kami."
+                <span class="client-name">- CHINTIA F., WEB DEV LEAD</span>
+            </div>
+            <div class="testimonial-item">
+                "Setiap iklan yang mereka luncurkan selalu menghasilkan *cost-per-acquisition* yang rendah."
+                <span class="client-name">- ERWIN G., FITNESS STUDIO OWNER</span>
+            </div>
+            <div class="testimonial-item">
+                "Mereka punya pemahaman mendalam tentang pasar Asia Tenggara. Hasilnya instan."
+                <span class="client-name">- GRACE H., INTERNATIONAL BRAND</span>
+            </div>
+             <div class="testimonial-item">
+                "Kami mendapatkan peningkatan *engagement* hingga 300% di TikTok. Sangat mengesankan!"
+                <span class="client-name">- MIRA P., MEDIA AGENCY</span>
+            </div>
+            <div class="testimonial-item">
+                "Dari nol pengikut, sekarang kami memiliki komunitas loyal. Semua berkat strategi mereka yang solid."
+                <span class="client-name">- JOKO L., FASHION DESIGNER</span>
+            </div>
+            <div class="testimonial-item">
+                "Nilai untuk uangnya luar biasa. Hasil yang kami dapat jauh melebihi biaya yang dikeluarkan."
+                <span class="client-name">- KEVIN W., TECH CONSULTANT</span>
+            </div>
+            <div class="testimonial-item">
+                "Transisi ke platform digital sangat mulus. Tim mereka sangat sabar dan suportif."
+                <span class="client-name">- HANI S., TRADITIONAL BUSINESS</span>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 30px;">
+             <a href="#testimonials" class="cta-button"><i class="fas fa-chevron-up"></i> KEMBALI KE PRATINJAU</a>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <h2><i class="fas fa-headset"></i> HUBUNGI KAMI | LET'S START</h2>
+        <form id="contactForm" action="process_form.php" method="POST">
+            <label for="name">NAMA LENGKAP:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">EMAIL BISNIS:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="company">NAMA PERUSAHAAN:</label>
+            <input type="text" id="company" name="company">
+            
+            <label for="message">PROYEK/PESAN ANDA:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            
+            <button type="submit"><i class="fas fa-paper-plane"></i> KIRIM PERMINTAAN (GO BIG!)</button>
+        </form>
+        
+        <div class="map-container">
+            <h3 style="color: var(--color-primary); text-align: center; margin-bottom: 15px;">LOKASI KANTOR KAMI</h3>
+            <iframe src="https://maps.google.com/maps?q=jakarta&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+    
+    <footer>
+        <p>© 2025 MARKETING DIGITAL PROFESIONAL. DIDESAIN DENGAN VIBE GEN Z.</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/wyufadh?igsh=MWluaDEwazd3cnBu" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://twitter.com" target="_blank" aria-label="X/Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://wa.me/your-number" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </footer>
+    
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('#carousel img');
+        const totalSlides = slides.length;
+
+        // Fungsi Carousel
+        function updateCarousel() {
+            slides.forEach((slide, index) => {
+                slide.style.transform = `translateX(${(index - currentSlide) * 100}%)`;
+            });
+        }
+        function moveCarousel(direction) {
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            updateCarousel();
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCarousel();
+            // Implementasi Smooth Scroll untuk link navigasi
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+        setInterval(() => {
+            moveCarousel(1);
+        }, 5000); 
+
+        // Fungsi Accordion FAQ (Fitur 3)
+        function toggleAccordion(element) {
+            const content = element.nextElementSibling;
+            const icon = element.querySelector('.fas');
+
+            // Tutup semua kecuali yang diklik
+            document.querySelectorAll('.accordion-header').forEach(header => {
+                if (header !== element) {
+                    header.classList.remove('active');
+                    header.nextElementSibling.style.maxHeight = null;
+                    header.querySelector('.fas').classList.remove('fa-chevron-up');
+                    header.querySelector('.fas').classList.add('fa-chevron-down');
+                }
+            });
+
+            // Buka atau tutup yang diklik
+            element.classList.toggle('active');
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            }
+        }
+    </script>
+</body>
+</html>
